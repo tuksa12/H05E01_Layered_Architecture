@@ -1,5 +1,6 @@
 package de.tum.in.ase.eist.presentationlayer;
 
+import de.tum.in.ase.eist.applicationlayer.Application;
 import de.tum.in.ase.eist.applicationlayer.ApplicationLayerInterface;
 import de.tum.in.ase.eist.networklayer.NetworkLayerInterface;
 
@@ -55,12 +56,12 @@ public class CaesarEncryption extends ChatEncryption implements PresentationLaye
 
 	@Override
 	public void start() {
-
+		networkLayer.openConnection();
 	}
 
 	@Override
 	public void stop() {
-
+		networkLayer.closeConnection();
 	}
 
 	@Override

@@ -8,6 +8,8 @@ import de.tum.in.ase.eist.applicationlayer.Application;
 import de.tum.in.ase.eist.applicationlayer.ApplicationLayerInterface;
 import de.tum.in.ase.eist.networklayer.NetworkLayerInterface;
 import de.tum.in.ase.eist.networklayer.TcpNetworkLayer;
+import de.tum.in.ase.eist.presentationlayer.CaesarEncryption;
+import de.tum.in.ase.eist.presentationlayer.PresentationLayerInterface;
 
 public class ChatClient {
 
@@ -34,6 +36,14 @@ public class ChatClient {
 		applicationLayer = new Application(this);
 
 		NetworkLayerInterface networkLayer = new TcpNetworkLayer(serverHost, serverPort);
+
+		PresentationLayerInterface presentationLayer = new CaesarEncryption(1);
+
+		applicationLayer.setPresentationLayer(presentationLayer);
+		networkLayer.setPresentationLayer(presentationLayer);
+
+		presentationLayer.setApplicationLayer(applicationLayer);
+		presentationLayer.setNetworkLayer(networkLayer);
 
 		//applicationLayer.setNetworkLayer(networkLayer);
 		//networkLayer.setApplicationLayer(applicationLayer);
