@@ -1,5 +1,8 @@
 package de.tum.in.ase.eist.presentationlayer;
 
+import de.tum.in.ase.eist.applicationlayer.ApplicationLayerInterface;
+import de.tum.in.ase.eist.networklayer.NetworkLayerInterface;
+
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.util.Base64;
@@ -12,12 +15,15 @@ import javax.crypto.spec.SecretKeySpec;
  * Code from Stackoverflow.
  * http://stackoverflow.com/questions/15554296/simple-java-aes-encrypt-decrypt-example
  */
-public class AesEncryption extends ChatEncryption {
+public class AesEncryption extends ChatEncryption implements PresentationLayerInterface{
 
 	private static final byte[] INIT_VECTOR = "RandomInitVector".getBytes(StandardCharsets.UTF_8);
 
 	// TODO: Part 3: Conform to the interface PresentationLayerInterface and pass the method calls to the application layer or network layer
 	// TODO: Part 3: Add references to ApplicationLayerInterface and NetworkLayerInterface
+
+	private ApplicationLayerInterface applicationLayer;
+	private NetworkLayerInterface networkLayer;
 
 	private final byte[] key;
 
@@ -64,6 +70,46 @@ public class AesEncryption extends ChatEncryption {
 			ex.printStackTrace();
 		}
 		return "Errors in decryption.";
+	}
+
+	@Override
+	public void start() {
+		this.getNetworkLayer().openConnection();
+	}
+
+	@Override
+	public void stop() {
+		this.getNetworkLayer().closeConnection();
+	}
+
+	@Override
+	public void sendMessage(String message) {
+		this.getNetworkLayer().sendMessage(encrypt(message));
+	}
+
+	@Override
+	public void receiveMessage(String message) {
+		this.getApplicationLayer().receiveMessage(decrypt(message));
+	}
+
+	@Override
+	public ApplicationLayerInterface getApplicationLayer() {
+		return applicationLayer;
+	}
+
+	@Override
+	public void setApplicationLayer(ApplicationLayerInterface applicationLayer) {
+		this.applicationLayer = applicationLayer;
+	}
+
+	@Override
+	public NetworkLayerInterface getNetworkLayer() {
+		return networkLayer;
+	}
+
+	@Override
+	public void setNetworkLayer(NetworkLayerInterface networkLayer) {
+		this.networkLayer = networkLayer;
 	}
 
 	// TODO: Part 3: The send message method must encrypt the message before sending

@@ -71,7 +71,7 @@ public class CaesarEncryption extends ChatEncryption implements PresentationLaye
 
 	@Override
 	public void receiveMessage(String message) {
-		this.getNetworkLayer().receiveMessage(decrypt(message));
+		this.getApplicationLayer().receiveMessage(decrypt(message));
 
 	}
 
