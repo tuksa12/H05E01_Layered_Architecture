@@ -15,7 +15,7 @@ public class TcpNetworkLayer implements NetworkLayerInterface {
 
 	private Socket socket;
 	private Scanner incomingScanner;
-	private PrintWriter outgoingWriter;
+	private PrintWriter outgoingWriter = new PrintWriter(System.out);
 	private Thread waitForIncommingMessageThread;
 	private static AtomicBoolean running = new AtomicBoolean(false);
 
