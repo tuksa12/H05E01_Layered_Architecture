@@ -49,7 +49,7 @@ public class Application implements ApplicationLayerInterface {
 	}
 
 	@Override
-	public PresentationLayerInterface getNetworkLayer() {
+	public PresentationLayerInterface getPresentationLayer() {
 		return presentationLayer;
 	}
 

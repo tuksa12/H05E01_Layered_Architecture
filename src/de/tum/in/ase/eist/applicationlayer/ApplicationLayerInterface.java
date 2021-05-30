@@ -16,5 +16,5 @@ public interface ApplicationLayerInterface {
 	// TODO: Part 2: Replace with setters and getters for presentation layer
 	void setPresentationLayer(PresentationLayerInterface presentationLayer);
 
-	PresentationLayerInterface getNetworkLayer();
+	PresentationLayerInterface getPresentationLayer();
 }
