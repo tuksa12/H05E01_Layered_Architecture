@@ -66,11 +66,13 @@ public class ChatClient {
 
 	public void receiveMessage(String message) {
 		lastMessgeReceived = message;
-		// TODO: Part 1: Print the received message by invoking the printMessage() method
+		printMessage(lastMessgeReceived);
+		// Done: Part 1: Print the received message by invoking the printMessage() method
 	}
 
 	public void sendMessage(String outgoingMessage) {
-		// TODO: Part 1: Use the application layer to send the message.
+		applicationLayer.sendMessage(outgoingMessage);
+		// : Part 1: Use the application layer to send the message.
 	}
 
 	private void shutDown() {

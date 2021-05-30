@@ -1,6 +1,7 @@
 package de.tum.in.ase.eist.networklayer;
 
 import de.tum.in.ase.eist.applicationlayer.ApplicationLayerInterface;
+import de.tum.in.ase.eist.presentationlayer.PresentationLayerInterface;
 
 public interface NetworkLayerInterface {
 
@@ -13,7 +14,7 @@ public interface NetworkLayerInterface {
 	void closeConnection();
 
 	// TODO: Part 2: Replace with setter and getter for presentation layer
-	void setApplicationLayer(ApplicationLayerInterface applicationLayer);
+	void setPresentationLayer(PresentationLayerInterface presentationLayer);
 
-	ApplicationLayerInterface getApplicationLayer();
+	PresentationLayerInterface getPresentationLayer();
 }

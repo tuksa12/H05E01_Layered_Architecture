@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import de.tum.in.ase.eist.applicationlayer.ApplicationLayerInterface;
+import de.tum.in.ase.eist.presentationlayer.PresentationLayerInterface;
 
 public class TcpNetworkLayer implements NetworkLayerInterface {
 
@@ -21,7 +22,7 @@ public class TcpNetworkLayer implements NetworkLayerInterface {
 	private final String host;
 	private final int port;
 	// TODO: Part 2: Replace with a reference to presentation layer
-	private ApplicationLayerInterface applicationLayer;
+	private PresentationLayerInterface presentationLayer;
 
 	public TcpNetworkLayer(String host, int port) {
 		this.host = host;
@@ -36,18 +37,18 @@ public class TcpNetworkLayer implements NetworkLayerInterface {
 
 	@Override
 	public void receiveMessage(String message) {
-		applicationLayer.receiveMessage(message);
+		presentationLayer.receiveMessage(message);
 	}
 
 	// TODO: Part 2: Replace with setter and getter for presentation layer
 	@Override
-	public void setApplicationLayer(ApplicationLayerInterface applicationLayer) {
-		this.applicationLayer = applicationLayer;
+	public void setPresentationLayer(PresentationLayerInterface applicationLayer) {
+		this.presentationLayer = applicationLayer;
 	}
 
 	@Override
-	public ApplicationLayerInterface getApplicationLayer() {
-		return applicationLayer;
+	public PresentationLayerInterface getPresentationLayer() {
+		return presentationLayer;
 	}
 
 	private void waitForIncommingMessages() {

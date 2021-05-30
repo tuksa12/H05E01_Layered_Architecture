@@ -1,9 +1,15 @@
 package de.tum.in.ase.eist.presentationlayer;
 
-public class CaesarEncryption extends ChatEncryption {
+import de.tum.in.ase.eist.applicationlayer.ApplicationLayerInterface;
+import de.tum.in.ase.eist.networklayer.NetworkLayerInterface;
+
+public class CaesarEncryption extends ChatEncryption implements PresentationLayerInterface {
 
 	// TODO: Part 2: Conform to the interface PresentationLayerInterface and pass the method calls to the application layer or network layer
 	// TODO: Part 2: Add references to ApplicationLayerInterface and NetworkLayerInterface
+
+	private ApplicationLayerInterface applicationLayer;
+	private NetworkLayerInterface networkLayer;
 
 	private static final int ALPHABET_SIZE = 26;
 
@@ -47,7 +53,29 @@ public class CaesarEncryption extends ChatEncryption {
 		return (char) (offset + (input - offset + key) % ALPHABET_SIZE);
 	}
 
+	@Override
+	public void start() {
+
+	}
+
+	@Override
+	public void stop() {
+
+	}
+
+	@Override
+	public void sendMessage(String message) {
+		networkLayer.sendMessage(encrypt(message));
+	}
+
+	@Override
+	public void receiveMessage(String message) {
+		networkLayer.receiveMessage(decrypt(message));
+
+	}
+
 	// TODO: Part 2: The send message method must encrypt the message before sending
 	// TODO: Part 2: The receive message method must decrypt the message before giving it to upper layer
+
 
 }
