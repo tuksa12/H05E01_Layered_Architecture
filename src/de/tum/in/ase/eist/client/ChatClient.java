@@ -9,7 +9,6 @@ import de.tum.in.ase.eist.applicationlayer.ApplicationLayerInterface;
 import de.tum.in.ase.eist.networklayer.NetworkLayerInterface;
 import de.tum.in.ase.eist.networklayer.TcpNetworkLayer;
 import de.tum.in.ase.eist.presentationlayer.AesEncryption;
-import de.tum.in.ase.eist.presentationlayer.CaesarEncryption;
 import de.tum.in.ase.eist.presentationlayer.PresentationLayerInterface;
 
 public class ChatClient {

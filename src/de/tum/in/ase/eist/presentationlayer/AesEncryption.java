@@ -15,7 +15,7 @@ import javax.crypto.spec.SecretKeySpec;
  * Code from Stackoverflow.
  * http://stackoverflow.com/questions/15554296/simple-java-aes-encrypt-decrypt-example
  */
-public class AesEncryption extends ChatEncryption implements PresentationLayerInterface{
+public class AesEncryption extends ChatEncryption implements PresentationLayerInterface {
 
 	private static final byte[] INIT_VECTOR = "RandomInitVector".getBytes(StandardCharsets.UTF_8);
 

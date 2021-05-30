@@ -1,6 +1,5 @@
 package de.tum.in.ase.eist.networklayer;
 
-import de.tum.in.ase.eist.applicationlayer.ApplicationLayerInterface;
 import de.tum.in.ase.eist.presentationlayer.PresentationLayerInterface;
 
 public interface NetworkLayerInterface {

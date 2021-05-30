@@ -1,7 +1,6 @@
 package de.tum.in.ase.eist.applicationlayer;
 
 import de.tum.in.ase.eist.client.ChatClient;
-import de.tum.in.ase.eist.networklayer.NetworkLayerInterface;
 import de.tum.in.ase.eist.presentationlayer.PresentationLayerInterface;
 
 public class Application implements ApplicationLayerInterface {

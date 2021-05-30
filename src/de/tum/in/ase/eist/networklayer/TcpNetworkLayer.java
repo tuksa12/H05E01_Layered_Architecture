@@ -8,7 +8,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import de.tum.in.ase.eist.applicationlayer.ApplicationLayerInterface;
 import de.tum.in.ase.eist.presentationlayer.PresentationLayerInterface;
 
 public class TcpNetworkLayer implements NetworkLayerInterface {
@@ -32,7 +31,6 @@ public class TcpNetworkLayer implements NetworkLayerInterface {
 	@Override
 	public void sendMessage(String message) {
 		// TODO: Part 1: Set a breakpoint here to debug the chat system
-		outgoingWriter = new PrintWriter(System.out);
 		outgoingWriter.println(message);
 	}
 
