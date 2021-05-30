@@ -18,6 +18,7 @@ public class Application implements ApplicationLayerInterface {
 	public void start() {
 		// TODO: Part 2: Replace with method invocation of the the presentation layer
 		//networkLayer.openConnection();
+		presentationLayer.start();
 
 	}
 
