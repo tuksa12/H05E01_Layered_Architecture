@@ -8,6 +8,7 @@ import de.tum.in.ase.eist.applicationlayer.Application;
 import de.tum.in.ase.eist.applicationlayer.ApplicationLayerInterface;
 import de.tum.in.ase.eist.networklayer.NetworkLayerInterface;
 import de.tum.in.ase.eist.networklayer.TcpNetworkLayer;
+import de.tum.in.ase.eist.presentationlayer.AesEncryption;
 import de.tum.in.ase.eist.presentationlayer.CaesarEncryption;
 import de.tum.in.ase.eist.presentationlayer.PresentationLayerInterface;
 
@@ -37,7 +38,7 @@ public class ChatClient {
 
 		NetworkLayerInterface networkLayer = new TcpNetworkLayer(serverHost, serverPort);
 
-		PresentationLayerInterface presentationLayer = new CaesarEncryption(1);
+		PresentationLayerInterface presentationLayer = new AesEncryption("0123456701234567");
 
 		applicationLayer.setPresentationLayer(presentationLayer);
 		networkLayer.setPresentationLayer(presentationLayer);
