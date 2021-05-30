@@ -74,6 +74,26 @@ public class CaesarEncryption extends ChatEncryption implements PresentationLaye
 
 	}
 
+	@Override
+	public ApplicationLayerInterface getApplicationLayer() {
+		return null;
+	}
+
+	@Override
+	public void setApplicationLayer(ApplicationLayerInterface applicationLayer) {
+
+	}
+
+	@Override
+	public NetworkLayerInterface getNetworkLayer() {
+		return null;
+	}
+
+	@Override
+	public void setNetworkLayer(NetworkLayerInterface networkLayer) {
+
+	}
+
 	// TODO: Part 2: The send message method must encrypt the message before sending
 	// TODO: Part 2: The receive message method must decrypt the message before giving it to upper layer
 

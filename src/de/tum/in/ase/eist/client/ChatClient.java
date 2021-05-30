@@ -35,8 +35,8 @@ public class ChatClient {
 
 		NetworkLayerInterface networkLayer = new TcpNetworkLayer(serverHost, serverPort);
 
-		applicationLayer.setNetworkLayer(networkLayer);
-		networkLayer.setApplicationLayer(applicationLayer);
+		//applicationLayer.setNetworkLayer(networkLayer);
+		//networkLayer.setApplicationLayer(applicationLayer);
 	}
 
 	public void start() {
