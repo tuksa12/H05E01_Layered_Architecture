@@ -15,7 +15,7 @@ public class TcpNetworkLayer implements NetworkLayerInterface {
 
 	private Socket socket;
 	private Scanner incomingScanner;
-	private PrintWriter outgoingWriter = new PrintWriter(System.out);
+	private PrintWriter outgoingWriter;
 	private Thread waitForIncommingMessageThread;
 	private static AtomicBoolean running = new AtomicBoolean(false);
 
@@ -32,6 +32,7 @@ public class TcpNetworkLayer implements NetworkLayerInterface {
 	@Override
 	public void sendMessage(String message) {
 		// TODO: Part 1: Set a breakpoint here to debug the chat system
+		outgoingWriter = new PrintWriter(System.out);
 		outgoingWriter.println(message);
 	}
 
