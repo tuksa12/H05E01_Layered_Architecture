@@ -56,43 +56,43 @@ public class CaesarEncryption extends ChatEncryption implements PresentationLaye
 
 	@Override
 	public void start() {
-		networkLayer.openConnection();
+		this.getNetworkLayer().openConnection();
 	}
 
 	@Override
 	public void stop() {
-		networkLayer.closeConnection();
+		this.getNetworkLayer().closeConnection();
 	}
 
 	@Override
 	public void sendMessage(String message) {
-		networkLayer.sendMessage(encrypt(message));
+		this.getNetworkLayer().sendMessage(encrypt(message));
 	}
 
 	@Override
 	public void receiveMessage(String message) {
-		networkLayer.receiveMessage(decrypt(message));
+		this.getNetworkLayer().receiveMessage(decrypt(message));
 
 	}
 
 	@Override
 	public ApplicationLayerInterface getApplicationLayer() {
-		return null;
+		return applicationLayer;
 	}
 
 	@Override
 	public void setApplicationLayer(ApplicationLayerInterface applicationLayer) {
-
+		this.applicationLayer = applicationLayer;
 	}
 
 	@Override
 	public NetworkLayerInterface getNetworkLayer() {
-		return null;
+		return networkLayer;
 	}
 
 	@Override
 	public void setNetworkLayer(NetworkLayerInterface networkLayer) {
-
+		this.networkLayer = networkLayer;
 	}
 
 	// TODO: Part 2: The send message method must encrypt the message before sending
